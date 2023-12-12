@@ -267,6 +267,33 @@ textarea {
   width: 92%;
 }
 
+/* Add styles for rotating images */
+.home-hero__img-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home-hero__img {
+  width: 170px; /* Set the width as needed */
+  height: auto;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for rotation */
+}
+
+.home-hero__img-name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.kim-img-container {
+  left: 0;
+}
+
+.vonn-img-container {
+  right: 0;
+}
+
 @media (max-width: 37.5em) {
   .home-hero__content {
     padding: 19rem 0 13rem 0;
@@ -278,7 +305,7 @@ textarea {
 
 .home-hero__info {
   margin: 3rem auto 0 auto;
-  max-width: 80rem;
+  max-width: 39rem;
 }
 
 .home-hero__cta {

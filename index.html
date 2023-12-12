@@ -61,21 +61,34 @@
       </div>
     </div>
   </header>
-  <section class="home-hero">
-    <div class="home-hero__content">
-      <h1 class="heading-primary">Hey, we're the BinaryBuddies</h1>
-      <div class="home-hero__info">
-        <p class="text-primary">
-          Choosing us for your journey is like adding the perfect brushstroke
-          to your canvas of possibilities. Let our works be the vibrant hue
-          that elevates your vision.
-        </p>
-      </div>
-      <div class="home-hero__cta">
-        <a href="./#projects" class="btn btn--bg">Projects</a>
-      </div>
+<!-- Within the section with class "home-hero" -->
+<section class="home-hero">
+  <div class="home-hero__content">
+    <!-- Container for Kim's image -->
+    <div class="home-hero__img-container kim-img-container">
+      <img src="/images/kim_image.jpg" alt="Kim's Image" class="home-hero__img kim-img" />
+      <h1 class="home-hero__img-name">Kim</h1>
     </div>
-  </section>
+    <!-- Container for Vonn's image -->
+    <div class="home-hero__img-container vonn-img-container">
+      <img src="/images/vonn_image.jpg" alt="Vonn's Image" class="home-hero__img vonn-img" />
+      <h1 class="home-hero__img-name">Vonn</h1>
+    </div>
+
+    <!-- Rest of your existing content -->
+    <h1 class="heading-primary">Hey, we're the BinaryBuddies</h1>
+    <div class="home-hero__info">
+      <p class="text-primary">
+        Choosing us for your journey is like adding the perfect brushstroke to your canvas of possibilities. Let our works be the vibrant hue that elevates your vision.
+      </p>
+    </div>
+    <div class="home-hero__cta">
+      <a href="./#projects" class="btn btn--bg">Projects</a>
+    </div>
+  </div>
+</section>
+
+
   <section id="about" class="about sec-pad">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-med">
@@ -283,6 +296,39 @@
     </div>
   </footer>
 
+<script>
+// JavaScript for continuous image rotation
+
+// Function to rotate an image element
+function rotateImage(imageElement, degree) {
+  imageElement.style.transform = `rotate(${degree}deg)`;
+}
+
+// Function to continuously rotate the images
+function startImageRotation() {
+  const kimImage = document.querySelector('.kim-img');
+  const vonnImage = document.querySelector('.vonn-img');
+
+  let rotationDegree = 0;
+  let rotateDirection = 1; // 1 for clockwise, -1 for counterclockwise
+
+  setInterval(() => {
+    rotateImage(kimImage, rotationDegree);
+    rotateImage(vonnImage, -rotationDegree);
+
+    rotationDegree += rotateDirection;
+
+    if (rotationDegree >= 15 || rotationDegree <= 0) {
+      rotateDirection *= -1; // Change rotation direction when reaching 0 or 15 degrees
+    }
+  }, 100); // Adjust the speed of rotation by changing the interval duration (in milliseconds)
+}
+
+// Start the continuous image rotation when the page loads
+window.addEventListener('load', startImageRotation);
+
+</script>
+</body>
 </body>
 
 </html>
